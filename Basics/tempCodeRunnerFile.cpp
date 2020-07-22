@@ -1,14 +1,12 @@
-#include <iostream>
-#include <string>
-using namespace std;
+ // // EXAMPLE #1
+    // int i = 0;
+    // while(i < 10) 
+    // {
+    //     cout << i << endl;
+    //     i++;
+    // }
 
-int main() 
-{
-    for(int i = 0; i < 5; i++) {
-        cout << i << endl;
-    }
-
-
-
-
-}
+    // // EXAMPLE #2
+    // int j = 0;
+    // while(++j < 10)
+    //     cout << j << endl;
