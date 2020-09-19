@@ -47,10 +47,10 @@ int main()
 
     // cout << a[0] << endl;
 
-    char b[] = "this a test 124124";
+    // char b[] = "this a test 124124";
 
-    b[0] ='g';
-    cout << b << endl;
+    // b[0] ='g';
+    // cout << b << endl;
 
     // char * const dynamic_array = new char[50]; <-- randomly assigns space
     // dynamic_array[0] = 'k';
@@ -60,10 +60,13 @@ int main()
     // cout << dynamic_array << endl;
 
     // delete [] dynamic_array;
-
-    string array_of_string[5] = {"this", "i a text that" "will be in", "all of", "the elements", "of strings"};
-    // array_of_string[0] = "afsdf"; // now we can't change the value, cause the const doesn't allow to change
-    cout << array_of_string[0] << endl;
+    cout << endl << endl << endl;
+    string *const array_of_string = new string[20];
+    array_of_string[0] = "this";
+    array_of_string[1] = "i a text that will be in all of";
+    array_of_string[2] =  "the elements of strings";
+    // array_of_string = "afsdf"; // now we can't change the value/address/memory, cause the const string pointer doesn't allow to change
+    cout << array_of_string << endl;
     cout << array_of_string[1] << endl;
     cout << array_of_string[2] << endl;
     return 0;
