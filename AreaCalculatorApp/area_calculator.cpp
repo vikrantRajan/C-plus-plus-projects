@@ -12,6 +12,8 @@ double areaRectangle(double, double);
 double areaTriangle(double, double);
 bool isValid(string);
 bool isValid(); // overloading function
+
+
 int main()
 {
     
@@ -110,7 +112,7 @@ double areaRectangle(double a, double b)
 {
     double result = a * b;
 
-    cout << "The area of a rectangle that first side is " << a << " the second side is " << b << " = " << result << endl;
+    cout << "The area of a rectangle [Width: " << a << " Height: " << b << "] = " << result << endl;
 
     return result;
 }
@@ -118,7 +120,7 @@ double areaTriangle(double a, double h)
 {
     double result = (1/2.0) * a * h;
 
-    cout << "The area of a rectangle that first side is " << a << " the second side is " << h << " = " << result << endl;
+    cout << "The area of a triangle with [Base: " << a << " Height: " << h << "] = " << result << endl;
 
     return result;
 }
