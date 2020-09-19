@@ -23,7 +23,7 @@ int main()
     cout << endl;
     double &d = swapMemoryReference(a, b);
 
-    d = 200;
+    d = 200.3413;
     c = 100;
 
     cout << "a: " << a << endl;
