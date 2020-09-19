@@ -66,8 +66,27 @@ int main()
     array_of_string[1] = "i a text that will be in all of";
     array_of_string[2] =  "the elements of strings";
     // array_of_string = "afsdf"; // now we can't change the value/address/memory, cause the const string pointer doesn't allow to change
-    cout << array_of_string << endl;
-    cout << array_of_string[1] << endl;
-    cout << array_of_string[2] << endl;
+    // cout << array_of_string << endl;
+    // cout << array_of_string[1] << endl;
+    // cout << array_of_string[2] << endl;
+
+
+    // Correct way to allocate and delete memory from a variable
+    char *const inscription = new char[20]; //making sure with const somebody doesn't make a mistake
+    
+    inscription[0] = 'a';
+    inscription[1] = 'b';
+    inscription[2] = 'c';
+    inscription[3] = '\0'; 
+    
+    char *temporaryPointer = inscription; //creating temporaryPointer for the sake of going 'through' the array
+    
+    while (*temporaryPointer)
+        cout << *temporaryPointer++ << " address for pointer: " << &temporaryPointer << endl;
+    
+    delete [] inscription;
+
+    cout << "address for original variable: " << &inscription << endl; // this takes up the next of memory
+
     return 0;
 }
