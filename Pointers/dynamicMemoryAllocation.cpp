@@ -11,7 +11,10 @@ int main()
 
     cout << "How many numbers would you like to store in an array? " << endl;
     cin >> amount;
-
+    
+    // cout << new int[amount] << endl;
+    // ^^ this is bad because the memory used for this variable may not be free
+    // specially if its a large number. 
     int *p = new (nothrow) int[amount];
 
     if (p != NULL)
@@ -33,13 +36,15 @@ int main()
 
 
     {
+        // new int always gets created in a new random memory spot
         int *p = new int; // this reserves the same space of memory
         cout << p << endl;
         delete p; // If we dont delete, another space in memory gets allocated for the next line
+        // Thats because the prev_new int still exists in memory, now we free that space
+        // so the next new int, occupies that same spot.
         p = new int; // this reserves the same space of memory
         cout << p << endl;
         delete p;
-
 
     }
 
