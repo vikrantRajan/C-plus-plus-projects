@@ -5,6 +5,9 @@
         "limits": "cpp",
         "iosfwd": "cpp",
         "new": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "__hash_table": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp"
     }
 }

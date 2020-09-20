@@ -36,201 +36,54 @@
 
 #include <iostream>
 #include <vector>
+#include <deque>
 using namespace std;
 
 // double lottery(int, int);
-long int result(long int);
-bool isPrime(long int);
-bool isMultipleOfPrime(long int);
+int result(int);
+bool isPrime(int);
+bool isMultipleOfPrime(int);
+int showdq(deque <int> g);
+
+int showdq(deque <int> g) 
+{ 
+    deque <int> :: iterator it; 
+    for (it = g.begin(); it != g.end(); ++it) 
+        cout << '\t' << *it; 
+    cout << '\n'; 
+} 
 
 int main()
 {
-  int N = 500;
+  int N = 10;
   result(N);
   return 0;
 }
 
-long int result(long int num)
+int result(int num)
 {
-  vector<long int> a;
-  vector<long int> h;
-  
+  deque<int> a;
+  deque<int> h;
 
-
-  for (int j = 1; j < num; j++)
+  while (a.size() < num)
   {
-    if(j <= 5)
-    {
-      h.push_back(j);
-      h.push_back(j*2);
-      h.push_back(j*3);
-      h.push_back(j*5);
-    } 
-    
-    if (j > 5 && isPrime(j) == false && isMultipleOfPrime(j) == false)
-    {
 
+      int k = h.pop_back();
+      // h.erase(h.begin());
+    
       // cout << "Not Prime" << endl;
-      h.push_back(j*2);
-      h.push_back(j*3);
-      h.push_back(j*5);
+      h.push_back(k);
+      h.push_back(k*2);
+      h.push_back(k*3);
+      h.push_back(k*5);
       // cout << "Iteration#" << j << endl;
       // cout << "2: " << j*2 << endl;
       // cout << "3: " << j*3 << endl;
       // cout << "5: " << j*5 << endl;
       // cout << endl << endl << endl;
-    }
+   
+      sort(h.begin(), h.end()); 
 
   }
-
-  sort(h.begin(), h.end()); 
-
-  // remove duplicates
-  for (int n = 0; n < num; n++)
-  {
-    if(h[n] == h[n - 1])
-    {
-      // h.push_back(n - 1);
-      // Deletes the Nth element 
-      h.erase(h.begin() + (n - 1));
-
-    }
-    if(h[n] == h[n - 1])
-    {
-      // h.push_back(n - 1);
-      // Deletes the Nth element 
-      h.erase(h.begin() + (n - 1));
-
-    }
-    cout << "[" << n + 1 << "] = " << h[n] << endl;
-  }
-
-  
   return 0;
-}
-
-
-bool isPrime(long int i)
-{
-  int p, m = 0, isPrime = 0;
-  // cout << "Prime Number: " << i << endl << endl;
-  // cin >> n;
-  
-  if(i % 2 != 0)
-  {
-    m = i / 2;
-
-  } else {
-
-    m = i;
-
-  }
-  
-
-  for (p = 2; p <= m; p++)
-  {
-    if (i % p == 0)
-    {
-      // cout << "Number is not Prime." << endl;
-      isPrime = 1;
-      break;
-    }
-  }
-
-  if (isPrime == 0)
-  {
-    // cout << i << " <---: Number is Prime." << endl;
-    return true;
-  } else {
-    return false;
-  }
-  
-}
-
-bool isMultipleOfPrime(long int dividend)
-{
-  long int divisor_two = 2, divisor_three = 3, divisor_five = 5;
-  long int quotient_two, quotient_three, quotient_five;
-  long int remainder_two, remainder_three, remainder_five;
-
-  quotient_two = dividend / divisor_two;
-  remainder_two = dividend % divisor_two;
-  // cout << "Dividend is " << dividend <<endl;
-  // cout << "Divisor is " << divisor_two <<endl;
-  // cout << "Quotient is " << quotient_two << endl;
-  // cout << "Remainder is " << remainder_two << endl;
-  // cout << endl << endl << endl;
-  
-
-  quotient_three = dividend / divisor_three;
-  remainder_three = dividend % divisor_three;
-  // cout << "Dividend is " << dividend <<endl;
-  // cout << "Divisor is " << divisor_three <<endl;
-  // cout << "Quotient is " << quotient_three << endl;
-  // cout << "Remainder is " << remainder_three << endl;
-  // cout << endl << endl << endl;
-
-  quotient_five = dividend / divisor_five;
-  remainder_three = dividend % divisor_five;
-  // cout << "Dividend is " << dividend <<endl;
-  // cout << "Divisor is " << divisor_five <<endl;
-  // cout << "Quotient is " << quotient_five << endl;
-  // cout << "Remainder is " << remainder_three << endl;
-  // cout << endl << endl << endl;
-
-  
-  if(isPrime(quotient_two) == true && quotient_two > 5)
-  {
-    // cout << dividend << "[!2]: Is a multiple of a prime number: " << endl;
-    return true;
-  } 
-
-
-  else if (isPrime(quotient_three) == true && quotient_two > 5)
-  {
-    // cout << dividend << "[!3]: Is a multiple of a prime number: " << endl;
-    return true;
-  } 
-  else if (isPrime(quotient_five) == true && quotient_two > 5)
-  {
-    // cout << dividend << "[!5]: Is a multiple of a prime number: " << endl;
-    return true;
-  } 
-  else if (isPrime(dividend) == true && dividend > 5)
-  {
-    // cout << dividend << "[!dividend]: Is a multiple of a prime number: " << endl;
-    return true;
-  } 
-  else if (quotient_two > 30 || quotient_three > 30 || quotient_five > 30) {
-
-    if(remainder_two == 0)
-    {
-      // cout << quotient_two % divisor_three << endl;
-      isMultipleOfPrime(quotient_two);
-      return false;
-    } 
-    else if(remainder_three == 0)
-    {
-      isMultipleOfPrime(quotient_three);
-      return false;
-    }
-    else if(remainder_five == 0)
-    {
-      isMultipleOfPrime(quotient_five);
-      return false;
-    }
-    else 
-    {
-      cout << dividend << " Is Not further divisible by 2, 3 or 5" << endl;
-      // isPrime(dividend);
-      return true;
-    }
-
-  }
-  else {
-    
-    cout << dividend << ": NOT PRIME NUMBER" << endl;
-    return false;
-  }
-  return false;
 }
