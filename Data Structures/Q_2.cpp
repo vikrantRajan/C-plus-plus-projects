@@ -93,11 +93,55 @@ long int result(int nums)
 
 // BREAKING DOWN THE ABOVE CODE....
 
+/* 
+
+I am using 3 main variables:
+
+1. vector<long int> a 
+- This will be initialized as an empty array [index 0]
+- It will hold the sorted data in ascending order 
+- It will be looped over untill a.size() < 1500 (index starts on 0 till 1499)
+- This will ensure that this will hold 1500 values
+
+2. vector<long int> h
+- This will be initialized with the value of 1 on index#0 
+- It will hold only multiples of 2, 3 & 5 and its various permutations & combinations
+- It will increase in size by 3 index-values on each loop
+- The smallest value on each loop needs to be added to the end of vector<long int> a 
+- This will ensure that vector<long int> a is sorted in ascending order
+- Then that smallest value must be deleted from vector<long int> h the start of each loop
+
+3. long int k
+- This will temporarily hold the smallest value of h in each of the iterations
+- Check if the current value of k exists in the last index-value of vector<long int> a
+- If it does not exist: we run the multiplications 
+- Add 3 new values to h (k*2, k*3, k*5), & add 1 new value to 'a'
+- If the k = last value of 'a' nothing will be added 
+- the size of 'a' will not increase, the loop will run again
+- This prevents duplicate values being added to 'a'
+- In order to prevent numbers like 7, 11, 13, 17, 19, 21 etc and other prime numbers
+- long int k will be derived from smallest value of 'h' on each iteration 
+- k will always be a multiple of 2,3 & 5 without any other prime number being involed at all
+- These are numbers (k*2, k*3 & k*5) and then sorted in descending order
+- Using k = h.back(), which gets the smallest number in 'h' 
+- On the first iteration of the loop since k=1... 1*2,1*3,1*5 are the values that aren't there in 'a'
+- so that means it will be added to 'a' and other numbers to 'h'
+
+
+To sum it all up: 
+1. multiplying 2, 3 & 5 on the first iteration allowed me to save those numbers 
+2. then sort and use the smallest number in a temporary variable to check if it exists in 'a'
+3. if it doesn't then we add it to 'a' untill a's size is what we specifiy creating a 'domino effect' of 2's, 3's & 5's
+4. Repeat untill we get the amount of numbers we need
+
+This achieves the requirements without including prime numbers & duplicate numbers 
+
+*/
 // Iteration # 1
 /*
 a[] = empty
 h = [1]
-k = [1] (We pop h into k);
+k = [1] (We pop the value of  h[index# 1] into k); so int k = 1
 h = [] (empty)
 
 if (a[1] doesn't exist)
@@ -205,5 +249,8 @@ if (a[6] doesn't exist)
 By always checking if the last index of A = smallest value of H
 and adding based on that we avoid putting any number that is not a multiple of 2,3 or 5!
 
+as you can see the numbers in h are all multiples of 2,3 & 5
+ONLY those numbers will be used to run a check with a,
+which eventually adds those numbers to a, because it doesn't exist
 
 */
