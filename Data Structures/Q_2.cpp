@@ -36,54 +36,58 @@
 
 #include <iostream>
 #include <vector>
-#include <deque>
+#include <algorithm>
+#include <stdexcept>
+
 using namespace std;
 
-// double lottery(int, int);
-int result(int);
-bool isPrime(int);
-bool isMultipleOfPrime(int);
-int showdq(deque <int> g);
-
-int showdq(deque <int> g) 
-{ 
-    deque <int> :: iterator it; 
-    for (it = g.begin(); it != g.end(); ++it) 
-        cout << '\t' << *it; 
-    cout << '\n'; 
-} 
+long long int result(int nums);
+vector<long long int> h;
+bool isEqual(int lastA, int lastK);
 
 int main()
 {
-  int N = 10;
-  result(N);
+  h.push_back(1);
+  int nums = 1500;
+  result(nums);
   return 0;
 }
 
-int result(int num)
+long long int result(int nums)
 {
-  deque<int> a;
-  deque<int> h;
+ 
+  long long int k;
+  vector<long long int> a;
 
-  while (a.size() < num)
+  for (int i = 1; a.size() < nums; i++)
   {
 
-      int k = h.pop_back();
-      // h.erase(h.begin());
-    
-      // cout << "Not Prime" << endl;
-      h.push_back(k);
-      h.push_back(k*2);
-      h.push_back(k*3);
-      h.push_back(k*5);
-      // cout << "Iteration#" << j << endl;
-      // cout << "2: " << j*2 << endl;
-      // cout << "3: " << j*3 << endl;
-      // cout << "5: " << j*5 << endl;
-      // cout << endl << endl << endl;
-   
-      sort(h.begin(), h.end()); 
+    k = h.back();
+    h.pop_back();
+    std::vector<long long int>::iterator it = std::find(a.begin(), a.end(), k);
+
+    if (it == a.end())
+    {
+      a.push_back(k);
+      long long int one = k * 2;
+      long long int two = k * 3;
+      long long int three = k * 5;
+      long long int multiplier[4500] = {one, two, three};
+      h.insert(h.end(), multiplier, multiplier + 3);
+      sort(h.begin(), h.end(), greater<>());
+    }
+
+    // cout << "K Value: " << k << endl;
 
   }
-  return 0;
+
+  
+  for(int j = 0; j < a.size(); j++)
+  {
+    cout << "[A " << j << "] => " << a[j] << endl;
+    // cout << "[K " << j + 1 << "] => " << k[j] << endl;
+    // cout << "[H " << j + 1 << "] => " << h[j] << endl;
+    // cout << endl << endl;
+  }
+      return 0;
 }
