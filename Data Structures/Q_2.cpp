@@ -245,7 +245,7 @@ k = [1, 2, 3, 4, 5, 6, 6] (We pop last value of h into k);
 h = [25, 20, 15, 15, 12, 10, 10, 9, 8]
 
 if (a[6] doesn't exist)
-!! 6 does exist so the loop doesn't run on the 7th iteration
+!! 6 DOES EXIST so the loop doesn't run on the 7th iteration
 By always checking if the last index of A = smallest value of H
 and adding based on that we avoid putting any number that is not a multiple of 2,3 or 5!
 

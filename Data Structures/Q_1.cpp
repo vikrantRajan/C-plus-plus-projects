@@ -23,7 +23,7 @@ class Point2D
     float y;
 };
 
-class Rectangle
+class Rectangle2D
 {
 
 };
