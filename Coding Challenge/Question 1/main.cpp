@@ -12,8 +12,10 @@
 #include <iostream>
 #include "Headers/rectangle.h" // Rectangle class prototype
 #include "rectangle.cpp"       // Rectangle class methods
-#include "Headers/point2D.h" // Rectangle class prototype
-#include "point2D.cpp"       // Rectangle class methods
+#include "Headers/point2D.h" // Point2D class prototype
+#include "point2D.cpp"       // Point2D class methods
+#include "Headers/comparison.h"
+#include "comparison.cpp"
 
 using namespace std;
 
@@ -21,20 +23,21 @@ int main ()
 {
     Rectangle primaryRectangle;
     Point2D firstPoint;
-    firstPoint.setPoint(3, 3);
-    
-    // primaryRectangle.setXYposition(-10, -40);
-    // primaryRectangle.setHeight(10);
-    // primaryRectangle.setWidth(8);
-    
-    
+    firstPoint.setPoint(4, 3);
+
+    Comparison compare;
+    compare.checkPoint(
+        firstPoint.getPointX(), 
+        firstPoint.getPointY(), 
+        primaryRectangle.getX1position(), 
+        primaryRectangle.getX2position(), 
+        primaryRectangle.getY1position(), 
+        primaryRectangle.getY2position()
+    );
+
     // cout << primaryRectangle.getHeight() <<  endl;
     // cout << primaryRectangle.getWidth() << endl;
     // cout << primaryRectangle.getXposition() << endl;
     // cout << primaryRectangle.getYposition() << endl;
-
-    cout << "[LEFT] X1 POS: " << primaryRectangle.getX1position() << endl;
-    cout << "[RIGHT] X2 POS: " << primaryRectangle.getX2position() << endl;
-    cout << "[BOTTOM] Y1 POS: " << primaryRectangle.getY1position() << endl;
-    cout << "[TOP] Y2 POS: " << primaryRectangle.getY2position() << endl;
+    return 0;
 }

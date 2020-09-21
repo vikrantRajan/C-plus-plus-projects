@@ -38,53 +38,53 @@
 #include <vector>
 #include <algorithm>
 #include <stdexcept>
-
 using namespace std;
 
 long int result(int nums);
-vector<long int> h;
-bool isEqual(int lastA, int lastK);
+vector<long int> multiplied_numbers;
 
 int main()
 {
-  h.push_back(1);
-  int nums = 1500;
+
+  multiplied_numbers.push_back(1); // initialize with one to generate new numbers, this later gets multiplied by 2,3 &5
+  int nums = 1500; // Choose number of index items in the list
   result(nums);
   return 0;
+
 }
 
 long int result(int nums)
 {
  
-  long int k;
-  vector<long int> a;
+  long int temp_smallest_current_number;
+  vector<long int> final_result;
 
-  for (int i = 1; a.size() < nums; i++)
+  for (int i = 1; final_result.size() < nums; i++)
   {
 
-    k = h.back();
-    h.pop_back();
-    std::vector<long int>::iterator it = std::find(a.begin(), a.end(), k);
+    temp_smallest_current_number = multiplied_numbers.back();
+    multiplied_numbers.pop_back();
+    std::vector<long int>::iterator it = std::find(final_result.begin(), final_result.end(), temp_smallest_current_number);
 
-    if (it == a.end())
+    if (it == final_result.end())
     {
-      a.push_back(k);
-      long int one = k * 2;
-      long int two = k * 3;
-      long int three = k * 5;
+      final_result.push_back(temp_smallest_current_number);
+      long int one = temp_smallest_current_number * 2;
+      long int two = temp_smallest_current_number * 3;
+      long int three = temp_smallest_current_number * 5;
       long int multiplier[4500] = {one, two, three};
-      h.insert(h.end(), multiplier, multiplier + 3);
-      sort(h.begin(), h.end(), greater<>());
+      multiplied_numbers.insert(multiplied_numbers.end(), multiplier, multiplier + 3);
+      sort(multiplied_numbers.begin(), multiplied_numbers.end(), greater<>());
     }
     // cout << "K Value: " << k << endl;
   }
 
   
-  for(int j = 0; j < a.size(); j++)
+  for(int j = 0; j < final_result.size(); j++)
   {
-    cout << "[A " << j + 1 << "] => " << a[j] << endl;
-    // cout << "[K " << j + 1 << "] => " << k[j] << endl;
-    // cout << "[H " << j + 1 << "] => " << h[j] << endl;
+    cout << "[Final Result " << j + 1 << "] => " << final_result[j] << endl;
+    // cout << "[Temp Smallest No " << j + 1 << "] => " << temp_smallest_current_number[j] << endl;
+    // cout << "[Multiplied No " << j + 1 << "] => " << multiplied_numbers[j] << endl;
     // cout << endl << endl;
   }
 
@@ -97,41 +97,48 @@ long int result(int nums)
 
 I am using 3 main variables:
 
-1. vector<long int> a 
+1. vector<long int> final_result 
 - This will be initialized as an empty array [index 0]
 - It will hold the sorted data in ascending order 
-- It will be looped over untill a.size() < 1500 (index starts on 0 till 1499)
+- It will be looped over untill final_result.size() < 1500 (index starts on 0 till 1499)
 - This will ensure that this will hold 1500 values
 
-2. vector<long int> h
+2. vector<long int> multiplied_numbers
 - This will be initialized with the value of 1 on index#0 
 - It will hold only multiples of 2, 3 & 5 and its various permutations & combinations
 - It will increase in size by 3 index-values on each loop
-- The smallest value on each loop needs to be added to the end of vector<long int> a 
-- This will ensure that vector<long int> a is sorted in ascending order
-- Then that smallest value must be deleted from vector<long int> h the start of each loop
+- The smallest value on each loop needs to be added to the end of vector<long int> final_result 
+- This will ensure that vector<long int> final_result is sorted in ascending order
+- Then that smallest value must be deleted from vector<long int> multiplied_numbers the start of each loop
 
-3. long int k
-- This will temporarily hold the smallest value of h in each of the iterations
-- Check if the current value of k exists in the last index-value of vector<long int> a
-- If it does not exist: we run the multiplications 
-- Add 3 new values to h (k*2, k*3, k*5), & add 1 new value to 'a'
-- If the k = last value of 'a' nothing will be added 
-- the size of 'a' will not increase, the loop will run again
-- This prevents duplicate values being added to 'a'
+3. long int temp_smallest_current_number
+- This will temporarily hold the smallest value of multiplied_numbers in each of the iterations
+- Check if the temp_smallest_current_number exists in the last index-value of vector<long int> final_result
+- If it does not exist: we run the following: 
+- Add 3 new values to multiplied_numbers 
+- (temp_smallest_current_number*2, 
+- temp_smallest_current_number*3, 
+- temp_smallest_current_number*5), 
+- sort multiplied_numbers in descending order
+- & add smallest new value to 'final_result'
+
+- If the temp_smallest_current_number = last value of 'final_result' nothing will be added 
+- the size of 'final_result' will not increase, the loop will run again
+- This prevents duplicate values being added to 'final_result'
+
 - In order to prevent numbers like 7, 11, 13, 17, 19, 21 etc and other prime numbers
-- long int k will be derived from smallest value of 'h' on each iteration 
+- long int temp_smallest_current_number will be derived from smallest value of 'multiplied_numbers' on each iteration 
 - k will always be a multiple of 2,3 & 5 without any other prime number being involed at all
 - These are numbers (k*2, k*3 & k*5) and then sorted in descending order
-- Using k = h.back(), which gets the smallest number in 'h' 
-- On the first iteration of the loop since k=1... 1*2,1*3,1*5 are the values that aren't there in 'a'
-- so that means it will be added to 'a' and other numbers to 'h'
+- Using temp_smallest_current_number = multiplied_numbers.back(), which gets the smallest number in 'multiplied_numbers' 
+- On the first iteration of the loop since k=1... 1*2,1*3,1*5 are the values that aren't there in 'final_result'
+- so that means it will be added to 'final_result' and next set of numbers to 'multiplied_numbers'
 
 
 To sum it all up: 
 1. multiplying 2, 3 & 5 on the first iteration allowed me to save those numbers 
-2. then sort and use the smallest number in a temporary variable to check if it exists in 'a'
-3. if it doesn't then we add it to 'a' untill a's size is what we specifiy creating a 'domino effect' of 2's, 3's & 5's
+2. then sort and use the smallest number in a temporary variable to check if it exists in 'final_result'
+3. if it doesn't then we add it to 'a' untill final_result's size is what we specifiy creating a 'domino effect' of 2's, 3's & 5's
 4. Repeat untill we get the amount of numbers we need
 
 This achieves the requirements without including prime numbers & duplicate numbers 
