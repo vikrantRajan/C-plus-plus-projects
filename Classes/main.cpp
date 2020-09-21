@@ -3,12 +3,12 @@
 #include "people.cpp" // People class methods
 using namespace std;
 
-void test()
-{
-    PersonalData *pointer = new PersonalData[5];
+// void test()
+// {
+//     PersonalData *pointer = new PersonalData[5];
 
-    delete []pointer;
-}
+//     delete []pointer;
+// }
 
 int main()
 {
@@ -28,7 +28,7 @@ int main()
     cout << person.getSurname() << endl;
     cout << person2.getAge() << endl;
 
-    test();
+    // test();
 
     return 0;
 }

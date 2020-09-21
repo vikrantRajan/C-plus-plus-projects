@@ -28,7 +28,7 @@ PersonalData::PersonalData()
     cout << "[" << ++i << "] => The default constructor has just been invoked! " << endl;
     age = 500;
 
-    p = new int[5];
+    // p = new int[5];
 }
 
 PersonalData::PersonalData(short age)
@@ -43,5 +43,7 @@ PersonalData::~PersonalData()
     static int j = 0;
     cout << "[" << ++j << "] => The destructor has just been invoked! " << endl;
 
-    delete [] p;
+    // if(p)
+    //     delete [] p;
+    
 }
