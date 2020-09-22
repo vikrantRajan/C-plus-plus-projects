@@ -1,6 +1,16 @@
 #include "Headers/result.h"
 #include <vector>
 
+Result::Result()
+{
+    cout << "Start Result Constructor" << endl;
+}
+
+Result::~Result()
+{
+    cout << "Result Destructured" << endl;
+}
+
 long int Result::result(int nums)
 {
     this->multiplied_numbers.push_back(1); // initialize with one to generate new numbers, this later gets multiplied by 2,3 &5
@@ -10,15 +20,18 @@ long int Result::result(int nums)
 
         this->temp_smallest_current_number = this->multiplied_numbers.back();
         this->multiplied_numbers.pop_back();
-        std::vector<long int>::iterator it = std::find(this->final_result.begin(), this->final_result.end(), this->temp_smallest_current_number);
 
+        // Find the smallest number in final result and check if it doesn't match with temp_smallest_current_number
+        std::vector<long int>::iterator it = std::find(this->final_result.begin(), this->final_result.end(), this->temp_smallest_current_number);
+        
+        // if numbers do not match then run
         if (it == this->final_result.end())
         {
             this->final_result.push_back(this->temp_smallest_current_number);
-            long int one = this->temp_smallest_current_number * 2;
-            long int two = this->temp_smallest_current_number * 3;
-            long int three = this->temp_smallest_current_number * 5;
-            long int multiplier[4500] = {one, two, three};
+            this->one = this->temp_smallest_current_number * 2;
+            this->two = this->temp_smallest_current_number * 3;
+            this->three = this->temp_smallest_current_number * 5;
+            long int multiplier[4500] = {this->one, this->two, this->three};
             this->multiplied_numbers.insert(this->multiplied_numbers.end(), multiplier, multiplier + 3);
             sort(this->multiplied_numbers.begin(), this->multiplied_numbers.end(), greater<>());
         }
