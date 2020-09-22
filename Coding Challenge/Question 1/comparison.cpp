@@ -1,8 +1,14 @@
-// #include "Headers/point2D.h"
-// #include "Headers/rectangle.h"
 #include "Headers/comparison.h"
-// #include "rectangle.cpp"
-// #include "point2D.cpp"
+
+Comparison::Comparison()
+{
+    cout << "Start Comparison Constructor" << endl;
+}
+
+Comparison::~Comparison()
+{
+    cout << "Comparison Destructured" << endl;
+}
 
 bool Comparison::checkPoint(vector<float> point, vector<float> rectangle)
 {

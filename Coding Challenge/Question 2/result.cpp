@@ -4,6 +4,7 @@
 Result::Result()
 {
     cout << "Start Result Constructor" << endl;
+    this->multiplied_numbers.push_back(1); // initialize with one to generate new numbers, this later gets multiplied by 2,3 &5
 }
 
 Result::~Result()
@@ -13,7 +14,6 @@ Result::~Result()
 
 long int Result::result(int nums)
 {
-    this->multiplied_numbers.push_back(1); // initialize with one to generate new numbers, this later gets multiplied by 2,3 &5
 
     for (int i = 1; this->final_result.size() < nums; i++)
     {

@@ -12,6 +12,8 @@ class Point2D
     vector<float> points;
 
     public:
+        Point2D();
+        ~Point2D();
         void setPoint(float, float);
         float getPointX() { return x; }
         float getPointY() { return y; }

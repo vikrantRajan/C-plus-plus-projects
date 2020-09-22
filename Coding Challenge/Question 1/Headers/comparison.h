@@ -6,6 +6,8 @@
 class Comparison
 {
     public:
+        Comparison();
+        ~Comparison();
         bool checkPoint(vector<float>, vector<float>);
         bool checkRectangles(vector<float>, vector<float>);
 };
