@@ -32,63 +32,23 @@
 // Please be prepared to discuss your solution/solutions to this problem, as well as the steps you used to arrive
 // at the solution.
 
-// 2^x 3^y 5^z
 
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <stdexcept>
 using namespace std;
-
-long int result(int nums);
-vector<long int> multiplied_numbers;
+#include "Headers/result.h"
+#include "result.cpp"
 
 int main()
 {
-
-  multiplied_numbers.push_back(1); // initialize with one to generate new numbers, this later gets multiplied by 2,3 &5
+  
   int nums = 1500; // Choose number of index items in the list
-  result(nums);
+  Result factorials;
+  factorials.result(nums);
   return 0;
 
-}
-
-long int result(int nums)
-{
- 
-  long int temp_smallest_current_number;
-  vector<long int> final_result;
-
-  for (int i = 1; final_result.size() < nums; i++)
-  {
-
-    temp_smallest_current_number = multiplied_numbers.back();
-    multiplied_numbers.pop_back();
-    std::vector<long int>::iterator it = std::find(final_result.begin(), final_result.end(), temp_smallest_current_number);
-
-    if (it == final_result.end())
-    {
-      final_result.push_back(temp_smallest_current_number);
-      long int one = temp_smallest_current_number * 2;
-      long int two = temp_smallest_current_number * 3;
-      long int three = temp_smallest_current_number * 5;
-      long int multiplier[4500] = {one, two, three};
-      multiplied_numbers.insert(multiplied_numbers.end(), multiplier, multiplier + 3);
-      sort(multiplied_numbers.begin(), multiplied_numbers.end(), greater<>());
-    }
-    // cout << "K Value: " << k << endl;
-  }
-
-  
-  for(int j = 0; j < final_result.size(); j++)
-  {
-    cout << "[Final Result " << j + 1 << "] => " << final_result[j] << endl;
-    // cout << "[Temp Smallest No " << j + 1 << "] => " << temp_smallest_current_number[j] << endl;
-    // cout << "[Multiplied No " << j + 1 << "] => " << multiplied_numbers[j] << endl;
-    // cout << endl << endl;
-  }
-
-      return 0;
 }
 
 // BREAKING DOWN THE ABOVE CODE....
