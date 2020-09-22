@@ -29,10 +29,10 @@ int main ()
 
     // Rectangle automatically instantiates with
     // this->positionX = 0; this->positionY = 0; this->height = 10; this->width = 5;
-    Rectangle primaryRectangle;
+    Rectangle primaryRectangle(0,0,6,5.5);
 
-    // Can create instance with (X, Y, Height, Width)
-    Rectangle secondRectangle(-5.1,-10.1,10,5);
+    // Can create instance of axis alligned rectangles with (X, Y, Height, Width)
+    Rectangle secondRectangle(3,2.1,2,4);
     Point2D firstPoint;
 
     // You can move this around with (x, y)
@@ -43,10 +43,6 @@ int main ()
 
     Comparison compare;
     compare.checkPoint(pointCoordinates,rectangleCoordinates);
-    compare.checkRectangles(rectangleCoordinates, rectangleCoordinates2);
-    // cout << primaryRectangle.getHeight() <<  endl;
-    // cout << primaryRectangle.getWidth() << endl;
-    // cout << primaryRectangle.getXposition() << endl;
-    // cout << primaryRectangle.getYposition() << endl;
+    compare.checkRectangles(rectangleCoordinates2, rectangleCoordinates);
     return 0;
     }

@@ -40,6 +40,8 @@ bool Comparison::checkPoint(vector<float> point, vector<float> rectangle)
 bool Comparison::checkRectangles(vector<float> rectangle1, vector<float> rectangle2)
 {
     bool isIntersecting = false;
+    bool checkBothRectangles = false;
+    
     // divide the rectangle into 4 points
     // - 1. X1, Y1 (Bottom Left) [0],[2] --> first point
     // - 2. X2, Y1 (Bottom Right) [1], [2] --> second point
@@ -125,28 +127,36 @@ bool Comparison::checkRectangles(vector<float> rectangle1, vector<float> rectang
         return true;
     }
 
-    // If none of the 4 points in rectangle2 are in the other then they don't intersect
-    if (isIntersecting == false)
+    if(isIntersecting == false && checkBothRectangles == false)
     {
-
+        this->checkRectangles(rectangle2, rectangle1);
+        checkBothRectangles = true;
+    } 
+    // If none of the 4 points in rectangle2 are in the other then they don't intersect
+    else if(isIntersecting == false && checkBothRectangles == true)
+    {
+       
         cout << "Rectangle 1 & Rectangle 2 DO NOT INTERSECT" << endl;
         cout << "Rectangle1: "
-             << "[X1: " << rectangle1[0]
-             << "] [X2: " << rectangle1[1]
-             << "] [Y1: " << rectangle1[2]
-             << "] [Y2: " << rectangle1[3]
-             << "] "
-             << "Rectangle2: "
-             << "[X1: " << rectangle2[0]
-             << "] [X2: " << rectangle2[1]
-             << "] [Y1: " << rectangle2[2]
-             << "] [Y2: " << rectangle2[3]
-             << "] "
-             << endl
-             << endl;
+            << "[X1: " << rectangle1[0]
+            << "] [X2: " << rectangle1[1]
+            << "] [Y1: " << rectangle1[2]
+            << "] [Y2: " << rectangle1[3]
+            << "] "
+            << "Rectangle2: "
+            << "[X1: " << rectangle2[0]
+            << "] [X2: " << rectangle2[1]
+            << "] [Y1: " << rectangle2[2]
+            << "] [Y2: " << rectangle2[3]
+            << "] "
+            << endl
+            << endl;
         return false;
+
+        
     } else {
         cout << "Something is wrong..." << endl; 
         return false;
     }
+    return false;
 }
