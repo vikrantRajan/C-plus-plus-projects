@@ -28,15 +28,15 @@ class Rectangle
         void setHeight(float);
         void setWidth(float);
         void setXYposition(float, float);
-        vector<float> getPosition() { return position; }
-        float getHeight() { return height; }
-        float getWidth() { return width; }
-        float getX1position() { return left; }
-        float getX2position() { return right; }
-        float getY1position() { return bottom; }
-        float getY2position() { return top; }
+        vector<float> getPosition() const { return position; }
+        float getHeight() const { return height; }
+        float getWidth() const { return width; }
+        float getX1position() const { return left; }
+        float getX2position() const { return right; }
+        float getY1position() const { return bottom; }
+        float getY2position() const { return top; }
 
-        int getID() { return ID; }
+        int getID() const { return ID; }
         static int getCounter() { return counter; }
         };
 

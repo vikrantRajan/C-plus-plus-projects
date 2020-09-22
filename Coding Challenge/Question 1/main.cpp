@@ -29,7 +29,7 @@ int main ()
 
     // Rectangle automatically instantiates with
     // this->positionX = 0; this->positionY = 0; this->height = 10; this->width = 5;
-    Rectangle primaryRectangle(0,0,6,5.5);
+    const Rectangle primaryRectangle(0,0,6,5.5);
 
     // Can create instance of axis alligned rectangles with (X, Y, Height, Width)
     Rectangle secondRectangle(3,2.1,2,4);
