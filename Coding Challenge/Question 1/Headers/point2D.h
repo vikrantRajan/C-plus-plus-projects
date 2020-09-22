@@ -13,6 +13,7 @@ class Point2D
 
     public:
         Point2D();
+        Point2D(float, float);
         ~Point2D();
         void setPoint(float, float);
         float getPointX() { return x; }

@@ -8,6 +8,13 @@ Point2D::Point2D()
     this->y = 5;
 }
 
+Point2D::Point2D(float x, float y)
+{
+    cout << "Start Point2D Constructor" << endl;
+    this->x = x;
+    this->y = y;
+}
+
 Point2D::~Point2D()
 {
     cout << "Point2D Destructured" << endl;
