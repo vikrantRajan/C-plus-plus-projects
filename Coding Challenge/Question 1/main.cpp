@@ -14,30 +14,39 @@
 #include "rectangle.cpp"       // Rectangle class methods
 #include "Headers/point2D.h" // Point2D class prototype
 #include "point2D.cpp"       // Point2D class methods
-#include "Headers/comparison.h"
-#include "comparison.cpp"
+#include "comparison.cpp" // Comparison methods
+#include "Headers/comparison.h" // Comparison prototype
+#include <vector>
 
 using namespace std;
 
 int main ()
 {
+    // Saving coordinates in a vector to use later
+    vector<float> pointCoordinates;
+    vector<float> rectangleCoordinates;
+    vector<float> rectangleCoordinates2;
+
+    // Rectangle automatically instantiates with
+    // this->positionX = 0; this->positionY = 0; this->height = 10; this->width = 5;
     Rectangle primaryRectangle;
+
+    // Can create instance with (X, Y, Height, Width)
+    Rectangle secondRectangle(-5.1,-10.1,10,5);
     Point2D firstPoint;
-    firstPoint.setPoint(4, 3);
+
+    // You can move this around with (x, y)
+    firstPoint.setPoint(4.99, 10.001);
+    pointCoordinates = firstPoint.getPoints();
+    rectangleCoordinates = primaryRectangle.getPosition();
+    rectangleCoordinates2 = secondRectangle.getPosition();
 
     Comparison compare;
-    compare.checkPoint(
-        firstPoint.getPointX(), 
-        firstPoint.getPointY(), 
-        primaryRectangle.getX1position(), 
-        primaryRectangle.getX2position(), 
-        primaryRectangle.getY1position(), 
-        primaryRectangle.getY2position()
-    );
-
+    compare.checkPoint(pointCoordinates,rectangleCoordinates);
+    compare.checkRectangles(rectangleCoordinates, rectangleCoordinates2);
     // cout << primaryRectangle.getHeight() <<  endl;
     // cout << primaryRectangle.getWidth() << endl;
     // cout << primaryRectangle.getXposition() << endl;
     // cout << primaryRectangle.getYposition() << endl;
     return 0;
-}
+    }

@@ -1,5 +1,5 @@
 #include "Headers/rectangle.h"
-
+#include <vector>
 
 int Rectangle::counter = 0;
 Rectangle::Rectangle()
@@ -12,6 +12,32 @@ Rectangle::Rectangle()
     this->width = 5;
     this->setCoordinates();
     cout << "Constructured Rectangle ID: " << this->ID << endl;
+    cout << "X: " << this->getPosition()[0]
+         << " Y: " << this->getPosition()[1]
+         << " Height: " << this->getPosition()[2]
+         << " Width: " << this->getPosition()[3]
+         << endl
+         << endl
+         << endl;
+}
+
+Rectangle::Rectangle(float x, float y, float h, float w)
+{
+    counter++;
+    this->ID = counter;
+    this->positionX = x;
+    this->positionY = y;
+    this->height = h;
+    this->width = w;
+    this->setCoordinates();
+    cout << "Constructured Rectangle ID: " << this->ID << endl;
+    cout << "X: " << this->getPosition()[0]
+         << " Y: " << this->getPosition()[1]
+         << " Height: " << this->getPosition()[2]
+         << " Width: " << this->getPosition()[3]
+         << endl
+         << endl
+         << endl;
 }
 
 void Rectangle::setCoordinates()
@@ -20,6 +46,10 @@ void Rectangle::setCoordinates()
     this->right = this->positionX + this->width;
     this->top = this->positionY + this->height;
     this->bottom = this->positionY;
+    this->position.push_back(this->left);
+    this->position.push_back(this->right);
+    this->position.push_back(this->bottom);
+    this->position.push_back(this->top);
 }
 
 Rectangle::~Rectangle()

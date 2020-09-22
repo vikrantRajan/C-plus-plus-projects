@@ -1,6 +1,7 @@
 #ifndef RECTANGLE_H_INCLUDED
 #define RECTANGLE_H_INCLUDED
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Rectangle
@@ -16,18 +17,20 @@ class Rectangle
     float right;
     float bottom;
     float top;
+    vector<float> position;
     void setCoordinates();
 
     public:
         Rectangle();
+        Rectangle(float, float, float, float); 
         ~Rectangle();
+
         void setHeight(float);
         void setWidth(float);
         void setXYposition(float, float);
+        vector<float> getPosition() { return position; }
         float getHeight() { return height; }
         float getWidth() { return width; }
-        float getXposition() { return positionX; }
-        float getYposition() { return positionY; }
         float getX1position() { return left; }
         float getX2position() { return right; }
         float getY1position() { return bottom; }
@@ -35,6 +38,6 @@ class Rectangle
 
         int getID() { return ID; }
         static int getCounter() { return counter; }
-};
+        };
 
 #endif // RECTANGLE_H_INCLUDED
