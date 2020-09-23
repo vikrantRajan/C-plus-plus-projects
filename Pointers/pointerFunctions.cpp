@@ -42,7 +42,7 @@ void multiplyBy(int & var, int amount)
 
 int * pointerMultiplyBy(int * var, int amount)
 {
-    *var = *var *amount; // multiply pointer with amount
+    *var = *var * amount; // multiply pointer with amount
 
     return var;
 }

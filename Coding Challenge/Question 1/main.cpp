@@ -34,6 +34,7 @@ int main ()
     // Can create instance of axis alligned rectangles with (X, Y, Height, Width)
     Rectangle secondRectangle(3,2.1,2,4);
     Point2D firstPoint;
+    // Point2D secondPoint = firstPoint;
 
     // You can move this around with (x, y)
     firstPoint.setPoint(4.99, 10.001);

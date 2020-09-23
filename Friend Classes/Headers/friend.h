@@ -1,5 +1,5 @@
-#ifndef COMPARISON_H_INCLUDED
-#define COMPARISON_H_INCLUDED
+#ifndef FRIEND_H_INCLUDED
+#define FRIEND_H_INCLUDED
 class B; // pre declaring class to use in first function
 
 class A
@@ -16,4 +16,4 @@ class B
         int getPrivateValue() { return privateValue; }
 };
 
-#endif // COMPARISON_H_INCLUDED
+#endif // FRIEND_H_INCLUDED
