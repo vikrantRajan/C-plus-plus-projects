@@ -77,6 +77,7 @@ bool Comparison::overlap(float a1, float a2, float a3, float a4)
 
     // 3. Rect[1]x1 is more than Rect[2]x2
     //    Rect[1]y1 is more than Rect[2]y2
+    
     // 4. Rect[1]x2 is more than Rect[2]x2
     //    Rect[1]y2 is more than Rect[2]y2
     // This means that Rect[1] is far out to the right(x-axis)/top(y-axis)
