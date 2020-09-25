@@ -23,17 +23,19 @@ int main()
     *(secondPoint.x2) = 70;
     *(secondPoint.y2) = 7;
     cout << endl;
-    cout << "primaryPoint.x1:  " << *secondPoint.x1 << endl;
+    cout << "*primaryPoint.x1:  " << *secondPoint.x1 << endl;
     // cout << "primaryPoint.p:  " << primaryPoint.p << endl; // this gives the address cause in .h its written as *p
     cout << "*primaryPoint.y1:  " << *(secondPoint.y1) << endl;
     cout << "*primaryPoint.x2:  " << *(secondPoint.x2) << endl;
-    cout << "primaryPoint.y2:  " << *secondPoint.y2 << endl;
+    cout << "*primaryPoint.y2:  " << *secondPoint.y2 << endl;
     cout << endl;
-    // cout << "secondPoint.x:  " << secondPoint.x << endl;
-    // // cout << "secondPoint.p:  " << secondPoint.p << endl; // this gives the address cause in .h its written as *p
-    // cout << "*secondPoint.pointX:  " << *(secondPoint.pointX) << endl;
-    // cout << "*secondPoint.pointY:  " << *(secondPoint.pointY) << endl;
-    // cout << "secondPoint.y:  " << secondPoint.y << endl;
 
-    return 0;
+    secondPoint.check(*(secondPoint.x1), *(secondPoint.x2), *(secondPoint.y1), *(secondPoint.y2));
+        // cout << "secondPoint.x:  " << secondPoint.x << endl;
+        // // cout << "secondPoint.p:  " << secondPoint.p << endl; // this gives the address cause in .h its written as *p
+        // cout << "*secondPoint.pointX:  " << *(secondPoint.pointX) << endl;
+        // cout << "*secondPoint.pointY:  " << *(secondPoint.pointY) << endl;
+        // cout << "secondPoint.y:  " << secondPoint.y << endl;
+
+        return 0;
 }

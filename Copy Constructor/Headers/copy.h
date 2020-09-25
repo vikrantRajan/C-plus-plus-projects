@@ -14,6 +14,7 @@ class Test
         Test(const Test &);
         Test(float,float,float,float);
         ~Test();
+        bool check(float, float, float, float);
 };
 
 #endif // COPY_H_INCLUDED

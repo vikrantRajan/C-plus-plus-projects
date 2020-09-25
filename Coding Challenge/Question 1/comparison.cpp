@@ -24,24 +24,26 @@ bool Comparison::checkPoint(Point2D point, Rectangle rectangle)
     && point.getPointY() >= rectangle.getY1position() 
     && point.getPointY() <= rectangle.getY2position())
     {
-        cout << "The Point with coordinates X: "
+        cout << "!! Overlap !! The Point with coordinates X: "
              << point.getPointX() << ", Y: " << point.getPointY() << endl;
         cout << "is within the rectangle: "
              << "[X1: " << rectangle.getX1position()
              << "] [X2: " << rectangle.getX2position()
              << "] [Y1: " << rectangle.getY1position()
              << "] [Y2: " << rectangle.getY2position()
-             << "] " << endl;
+             << "] " << endl
+             << endl;
         return true;
     } else {
-        cout << "The Point with coordinates X: "
+        cout << "!! No Overlap !! The Point with coordinates X: "
              << point.getPointX() << ", Y: " << point.getPointY() << endl;
-        cout << "is within the rectangle: "
+        cout << "is NOT within the rectangle: "
              << "[X1: " << rectangle.getX1position()
              << "] [X2: " << rectangle.getX2position()
              << "] [Y1: " << rectangle.getY1position()
              << "] [Y2: " << rectangle.getY2position()
-             << "] " << endl;
+             << "] " << endl
+             << endl;
         return false;
     }
     return false;

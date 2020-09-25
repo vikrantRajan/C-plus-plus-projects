@@ -7,17 +7,18 @@ using namespace std;
 class Point2D
 {
     // private
-    float x;
-    float y;
     vector<float> points;
 
     public:
+        float *x;
+        float *y;
         Point2D();
         Point2D(float, float);
         ~Point2D();
+        Point2D(const Point2D &);
         void setPoint(float, float);
-        float getPointX() { return x; }
-        float getPointY() { return y; }
+        float getPointX() { return *x; }
+        float getPointY() { return *y; }
         vector<float> getPoints() { return points; }
 };
 

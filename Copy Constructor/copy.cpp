@@ -27,9 +27,17 @@ Test::~Test()
 
 Test::Test(const Test & obj)
 {
-    cout << "Copy Constructor" << endl;
+    cout << "Copy Constructor[" << 1 << "] "<< endl;
     this->x1 = new float(*(obj.x1));
     this->y1 = new float(*(obj.y1));
     this->x2 = new float(*(obj.x2));
     this->y2 = new float(*(obj.y2));
+}
+
+bool Test::check(float x1, float x2, float x3, float x4)
+{
+    cout << x1 << " " << x2 << " " << x3 << " " << x4 << endl;
+    if(x1 > x2)
+        cout << "yeah" << endl;
+    return true;
 }

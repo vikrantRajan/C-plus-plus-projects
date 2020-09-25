@@ -14,17 +14,16 @@ class Rectangle
     float positionX;
     float positionY;
 
+    void setCoordinates();
     float x1;
     float x2;
     float y1;
     float y2;
-    void setCoordinates();
 
     public:
         Rectangle();
         Rectangle(float, float, float, float);
         ~Rectangle();
-
         void setHeight(float);
         void setWidth(float);
         void setXYposition(float, float);

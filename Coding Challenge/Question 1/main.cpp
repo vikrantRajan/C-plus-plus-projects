@@ -51,12 +51,18 @@ int main ()
     // secondRectangle.setHeight(15);
 
     Point2D firstPoint;
+    Point2D secondPoint = firstPoint;
+    Point2D thirdPoint = firstPoint;
+    *(secondPoint.x) = 1.23;
+    *(secondPoint.y) = 3.23;
+
+    *(thirdPoint.x) = 21.23;
+    *(thirdPoint.y) = 30.23;
 
     // You can move this around with (x, y)
     firstPoint.setPoint(4.99, 10.001);
 
     Comparison compare;
-    // compare.checkPoint(firstPoint, primaryRectangle);
 
     if (compare.overlap(primaryRectangle.getX1position(),
                         primaryRectangle.getX2position(),
@@ -68,9 +74,17 @@ int main ()
                         secondRectangle.getY1position(),
                         secondRectangle.getY2position()))
     {
-        cout << "These Rectangles Overlap" << endl;
+        cout << "These Rectangles Overlap" 
+             << endl
+             << endl
+             << endl;
     } else {
-        cout << "No Overlap" << endl;
+        cout << "No Overlap" << endl << endl << endl;
     }
+
+        compare.checkPoint(firstPoint, primaryRectangle);
+        compare.checkPoint(secondPoint, primaryRectangle);
+        compare.checkPoint(thirdPoint, primaryRectangle);
+
         return 0;
     }
