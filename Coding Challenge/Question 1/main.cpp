@@ -17,33 +17,60 @@
 #include "comparison.cpp" // Comparison methods
 #include "Headers/comparison.h" // Comparison prototype
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 int main ()
 {
-    // Saving coordinates in a vector to use later
-    vector<float> pointCoordinates;
-    vector<float> rectangleCoordinates;
-    vector<float> rectangleCoordinates2;
-
-    // Rectangle automatically instantiates with
-    // this->positionX = 0; this->positionY = 0; this->height = 10; this->width = 5;
-    const Rectangle primaryRectangle(0,0,6,5.5);
+    // Rectangle..(more like a square) automatically instantiates with
+    // this->positionX = 0; this->positionY = 0; this->height = 10; this->width = 10;
+    const Rectangle primaryRectangle;
 
     // Can create instance of axis alligned rectangles with (X, Y, Height, Width)
-    Rectangle secondRectangle(3,2.1,2,4);
+    // 1. Check when rect[2] is on the bottom left compared to rect[1]
+    Rectangle secondRectangle(-9,-9,10,10);
+    // Rectangle secondRectangle(1, 1, 2, 0);
+
+    // // 2. Check when rect[2] is on the top left compared to rect[1]
+    // secondRectangle.setXYposition(-9, 9);
+
+    // // 3. Check when rect[2] is on the top right compared to rect[1]
+    // secondRectangle.setXYposition(9, 9);
+
+    // // 4. Check when rect[2] is on the bottom right compared to rect[1]
+    // secondRectangle.setXYposition(9, -9);
+
+    // // 5. Check when rect[2] points don't intersect in rect[1]
+    // secondRectangle.setXYposition(1, -5);
+    // secondRectangle.setHeight(25);
+
+    // 6. What if none of the corner points intersect?
+    // secondRectangle.setXYposition(3, -3);
+    // secondRectangle.setWidth(5);
+    // secondRectangle.setHeight(15);
+
     Point2D firstPoint;
-    // Point2D secondPoint = firstPoint;
 
     // You can move this around with (x, y)
     firstPoint.setPoint(4.99, 10.001);
-    pointCoordinates = firstPoint.getPoints();
-    rectangleCoordinates = primaryRectangle.getPosition();
-    rectangleCoordinates2 = secondRectangle.getPosition();
 
     Comparison compare;
-    compare.checkPoint(pointCoordinates,rectangleCoordinates);
-    compare.checkRectangles(rectangleCoordinates2, rectangleCoordinates);
-    return 0;
+    // compare.checkPoint(firstPoint, primaryRectangle);
+
+    if (compare.overlap(primaryRectangle.getX1position(),
+                        primaryRectangle.getX2position(),
+                        secondRectangle.getX1position(),
+                        secondRectangle.getX2position()) 
+                        &&
+        compare.overlap(primaryRectangle.getY1position(),
+                        primaryRectangle.getY2position(),
+                        secondRectangle.getY1position(),
+                        secondRectangle.getY2position()))
+    {
+        cout << "These Rectangles Overlap" << endl;
+    } else {
+        cout << "No Overlap" << endl;
+    }
+        return 0;
     }

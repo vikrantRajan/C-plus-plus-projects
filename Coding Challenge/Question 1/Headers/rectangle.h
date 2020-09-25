@@ -13,29 +13,27 @@ class Rectangle
     float width;
     float positionX;
     float positionY;
-    float left;
-    float right;
-    float bottom;
-    float top;
-    vector<float> position;
+
+    float x1;
+    float x2;
+    float y1;
+    float y2;
     void setCoordinates();
 
     public:
         Rectangle();
-        Rectangle(float, float, float, float); 
+        Rectangle(float, float, float, float);
         ~Rectangle();
 
         void setHeight(float);
         void setWidth(float);
         void setXYposition(float, float);
-        vector<float> getPosition() const { return position; }
         float getHeight() const { return height; }
         float getWidth() const { return width; }
-        float getX1position() const { return left; }
-        float getX2position() const { return right; }
-        float getY1position() const { return bottom; }
-        float getY2position() const { return top; }
-
+        float getX1position() const { return x1; }
+        float getX2position() const { return x2; }
+        float getY1position() const { return y1; }
+        float getY2position() const { return y2; }
         int getID() const { return ID; }
         static int getCounter() { return counter; }
         };
