@@ -68,7 +68,6 @@ bool Comparison::overlap(float a1, float a2, float a3, float a4)
     // 1. Rect[1]x1 is less than Rect[2]x1
     // 2. Rect[1]x2 is less than Rect[2]x1
     // This means that Rect[1] is far out to the left/bottom 
-    // it is not within the X axis of Rect[2] so it can't overlap
     if (a1 < a3 && a2 < a3)
         return false;
     // 3. Rect[1]x1 is more than Rect[2]x2
