@@ -5,11 +5,12 @@
 
 class Comparison
 {
+    bool overlap(float,float,float,float);
     public: 
     Comparison();
     ~Comparison();
     bool checkPoint(Point2D, Rectangle);
-    bool overlap(float,float,float,float);
+    bool checkRectangles(Rectangle, Rectangle);
 };
 
 #endif // COMPARISON_H_INCLUDED

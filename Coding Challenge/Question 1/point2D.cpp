@@ -2,14 +2,14 @@
 
 Point2D::Point2D()
 {
-    // cout << "Start Point2D Constructor" << endl;
+    cout << "Point2D Constructor X: 5, Y: 5" << endl;
     this->x = new float(5);
     this->y = new float(5);
 }
 
 Point2D::Point2D(float x, float y)
 {
-    // cout << "Start Point2D Constructor" << endl;
+    cout << "Point2D Constructor X: " << x << ", Y: "<< y << endl;
     // this->x = x;
     // this->y = y;
     this->x = new float(x);
@@ -18,9 +18,10 @@ Point2D::Point2D(float x, float y)
 
 Point2D::Point2D(const Point2D &obj)
 {
-    // cout << "Point Copy Constructor" << endl;
+
     this->x = new float(*(obj.x));
     this->y = new float(*(obj.y));
+    cout << "Point Copy Constructor X : " << *(this->x) << ", Y : "<< *(this->y) << endl;
 }
 
 Point2D::~Point2D()

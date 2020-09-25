@@ -27,31 +27,40 @@ bool Comparison::checkPoint(Point2D point, Rectangle rectangle)
     && point.getPointY() >= rectangle.getY1position() 
     && point.getPointY() <= rectangle.getY2position())
     {
-        cout << "!! Overlap !! The Point with coordinates X: "
-             << point.getPointX() << ", Y: " << point.getPointY() << endl;
-        cout << "is within the rectangle: "
-             << "[X1: " << rectangle.getX1position()
-             << "] [X2: " << rectangle.getX2position()
-             << "] [Y1: " << rectangle.getY1position()
-             << "] [Y2: " << rectangle.getY2position()
-             << "] " << endl
-             << endl;
+        cout << "!! This Point Overlaps !!" << endl;
         return true;
     } else {
-        cout << "!! No Overlap !! The Point with coordinates X: "
-             << point.getPointX() << ", Y: " << point.getPointY() << endl;
-        cout << "is NOT within the rectangle: "
-             << "[X1: " << rectangle.getX1position()
-             << "] [X2: " << rectangle.getX2position()
-             << "] [Y1: " << rectangle.getY1position()
-             << "] [Y2: " << rectangle.getY2position()
-             << "] " << endl
-             << endl;
+        cout << "!! This Point Does Not Overlap !!" << endl;
         return false;
     }
     return false;
 }
 
+bool Comparison::checkRectangles(Rectangle primaryRectangle, Rectangle secondRectangle)
+{
+    if (this->overlap(primaryRectangle.getX1position(),
+                        primaryRectangle.getX2position(),
+                        secondRectangle.getX1position(),
+                        secondRectangle.getX2position()) &&
+        this->overlap(primaryRectangle.getY1position(),
+                        primaryRectangle.getY2position(),
+                        secondRectangle.getY1position(),
+                        secondRectangle.getY2position()))
+    {
+        cout << "!! These Rectangles Overlap !!"
+             << endl
+             << endl
+             << endl;
+        return true;
+    }
+    else
+    {
+        cout << "!! These Rectangles Don't Overlap !!" << endl
+             << endl
+             << endl;
+        return false;
+    }
+}
 
 bool Comparison::overlap(float a1, float a2, float a3, float a4)
 {

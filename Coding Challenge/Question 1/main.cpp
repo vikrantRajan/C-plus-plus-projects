@@ -63,28 +63,10 @@ int main ()
     firstPoint.setPoint(4.99, 10.001);
 
     Comparison compare;
-
-    if (compare.overlap(primaryRectangle.getX1position(),
-                        primaryRectangle.getX2position(),
-                        secondRectangle.getX1position(),
-                        secondRectangle.getX2position()) 
-                        &&
-        compare.overlap(primaryRectangle.getY1position(),
-                        primaryRectangle.getY2position(),
-                        secondRectangle.getY1position(),
-                        secondRectangle.getY2position()))
-    {
-        cout << "These Rectangles Overlap" 
-             << endl
-             << endl
-             << endl;
-    } else {
-        cout << "No Overlap" << endl << endl << endl;
-    }
-
-        compare.checkPoint(firstPoint, primaryRectangle);
-        compare.checkPoint(secondPoint, primaryRectangle);
-        compare.checkPoint(thirdPoint, primaryRectangle);
+    compare.checkRectangles(primaryRectangle, secondRectangle);
+    compare.checkPoint(firstPoint, primaryRectangle);
+    compare.checkPoint(secondPoint, primaryRectangle);
+    compare.checkPoint(thirdPoint, primaryRectangle);
 
         return 0;
     }
