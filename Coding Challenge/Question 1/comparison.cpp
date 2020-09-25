@@ -17,8 +17,11 @@ Comparison::~Comparison()
 
 bool Comparison::checkPoint(Point2D point, Rectangle rectangle)
 {
-    // RECTANGLE [0] = x1 | [1] = x2 | [2] = y1 | [3] = y2
-    // POINT  [0] = x | [1] = y
+    // 1. Point(x) has to be more than Rect.x1
+    // 2. Point(x) has to be less than Rect.x2
+    // 3. Point(y) has to be more than Rect.y1
+    // 4. Point(y) has to be less than Rect.y2
+    // If all 4 conditions are met then point is within rectangle
     if (point.getPointX() >= rectangle.getX1position() 
     && point.getPointX() <= rectangle.getX2position() 
     && point.getPointY() >= rectangle.getY1position() 
@@ -55,14 +58,17 @@ bool Comparison::overlap(float a1, float a2, float a3, float a4)
     // SEARCH FOR WHAT WE DON'T WANT
     // 1. Rect[1]x1 is less than Rect[2]x1
     // 2. Rect[1]x2 is less than Rect[2]x1
+    // This means that Rect[1] is far out to the left/bottom 
+    // it is not within the X axis of Rect[2] so it can't overlap
     if (a1 < a3 && a2 < a3)
         return false;
     // 3. Rect[1]x1 is more than Rect[2]x2
     // 4. Rect[1]x2 is more than Rect[2]x2
+    // This means that Rect[1] is far out to the right/top
     if (a1 > a4 && a2 > a4)
         return false;
-    // After call the function again with Y.
-    // If the above statements dont return false then we know for sure its overlapping
+    // After this we call the function again with Y.
+    // If the above statements return false then we know for sure its overlapping
     return true;
 
 }
