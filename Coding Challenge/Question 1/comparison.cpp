@@ -77,7 +77,10 @@ bool Comparison::overlap(float a1, float a2, float a3, float a4)
     if (a1 > a4 && a2 > a4)
         return false;
     // After this we call the function again with Y.
-    // If the above statements return false then we know for sure its overlapping
+    // If the above statements return false 
+    // then we know for sure its NOT overlapping
+    // If none of the statements return false then
+    // These rectangles have to overlap
     return true;
 
 }
