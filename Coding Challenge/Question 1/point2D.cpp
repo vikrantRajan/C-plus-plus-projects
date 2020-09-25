@@ -10,25 +10,18 @@ Point2D::Point2D()
 Point2D::Point2D(float x, float y)
 {
     cout << "Point2D Constructor X: " << x << ", Y: "<< y << endl;
-    // this->x = x;
-    // this->y = y;
     this->x = new float(x);
     this->y = new float(y);
 }
 
 Point2D::Point2D(const Point2D &obj)
 {
-
     this->x = new float(*(obj.x));
     this->y = new float(*(obj.y));
-    cout << "Point Copy Constructor X : " << *(this->x) << ", Y : "<< *(this->y) << endl;
 }
 
 Point2D::~Point2D()
 {
-    // cout << "Point2D Destructured" 
-    //     << endl
-    //     << endl;
     // Free up space by deleting new floats
     delete x;
     delete y;
